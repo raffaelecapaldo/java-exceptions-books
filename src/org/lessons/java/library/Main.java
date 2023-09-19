@@ -65,10 +65,16 @@ public class Main {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			finally {
+				if (reader != null) {
+					reader.close();
+				}
+			}
 			System.out.println("\nLIBRI INSERITI - LISTA (da file)");
 			while (reader.hasNextLine()) {
 				System.out.println(reader.nextLine());
 			}
+			
 			reader.close();
 
 	}
