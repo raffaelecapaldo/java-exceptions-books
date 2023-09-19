@@ -1,5 +1,7 @@
 package org.lessons.java.library;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -9,7 +11,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Quanti libri vuoi inserire?");
+		System.out.print("Quanti libri vuoi inserire?: ");
 		int booksNumber = Integer.valueOf(sc.nextLine());
 		
 		Libro books[] = new Libro[booksNumber];
@@ -26,7 +28,7 @@ public class Main {
 			
 			try {
 				books[i] = new Libro(title, autor, editor, pagesNumber);
-				System.out.println("LIBRO INSERITO");
+				System.out.println("\nLIBRO INSERITO\n");
 			} catch (Exception e) {
 				System.err.println("Impossibile aggiungere il libro: " + e.getMessage());
 				i--;
@@ -54,6 +56,20 @@ public class Main {
 					e.printStackTrace();
 				}
 			}
+			
+			File fileList = new File(FILE_PATH);
+			Scanner reader = null;
+			try {
+				reader = new Scanner(fileList);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("\nLIBRI INSERITI - LISTA (da file)");
+			while (reader.hasNextLine()) {
+				System.out.println(reader.nextLine());
+			}
+			reader.close();
 
 	}
 
