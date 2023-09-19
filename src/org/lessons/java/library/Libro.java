@@ -2,10 +2,10 @@ package org.lessons.java.library;
 
 public class Libro {
 
-	String title;
-	String autor;
-	String editor;
-	int pagesNumber;
+	private String title;
+	private String autor;
+	private String editor;
+	private int pagesNumber;
 	
 	Libro(String title, String autor, String editor, int pagesNumber) throws Exception {
 		setTitle(title);
